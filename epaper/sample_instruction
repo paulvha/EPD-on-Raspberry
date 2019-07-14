@@ -1,0 +1,56 @@
+# instruction file for epaper
+# make by paulvha
+# version  1.0
+
+<           # start header
+p=15:27,    # set starting position
+B=B,        # set background color to black 
+m=O,        # mirror image: N = NONE, H = HORIZONTAL, V = VERTICAL, O = ORIGIN
+f='font16', # set fontsize 16
+t='This is a test from Paul\'', # epaper text paul' (including ')
+!=d,        # display the current X/Y for debug on screen
+p=15:35,    # set position
+t='paul1',  # epaper text paul1
+f='font24', # set font
+d=C,        # set d (display/foreground) color to color (red or yellow)
+t=' text you want here', # epaper text
+d=B,        # set d (display/foreground) color to BLACK
+p=242:30,   # set position
+l=400:30:1:5, # draw line to X=400, Y=30, 1 = dotted , 5 pixel 5x5
+
+# draw pixel
+d=c,!=d,    # set d (display/foreground) color to color, display x/y
+P=8,!=d,    # draw pixel 8x8, display x/y again (for debug)
+l=440:37:0:4,
+
+# draw circels
+p=240:200,  # set position
+d=b,C=40:5, # set display black, draw filled circle, radius 40, frame pixel 5x5
+d=C,        # set d (display/foreground) color to color
+c=20:4,     # draw empty circle with frame pixel 4x4
+
+# rectangle
+p=300:200,  # set position 
+d=B,        # set d (display/foreground) color to black
+q=320:220:5,# draw empty rectagle, xending 320, Y ending 220, frame pixel 5x5
+   
+# set time and date on epaper   
+b=C,        # set b (BACKGROUND) color to color
+p=325:200,  # set position
+T=n,        # set time (n= NO seconds)  
+D=n,        # set date (n = numeric, w = words)
+
+# testing rotate
+r=90,        # rotate 90 degrees
+d=w, p=20:20,# display color white, set position
+t='test to see this works',
+ 
+r=180,p=15:10, #rotate to 180 degrees
+n='19072019',  # epaper a number
+
+r=0,         # back to normal
+p=35:35,     # set position
+t='last',
+>           # end terminator
+#instruction end
+ 

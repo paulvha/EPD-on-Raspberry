@@ -1,0 +1,101 @@
+# instruction file for epaper
+# car made by paulvha
+# version  1.0 / May 2019
+
+<           # start header
+r=0,
+
+# header text
+d=c,        # set d (display/foreground) color to color
+p=20:10,    # start position
+f='font24', # font size
+t='Is this your car?',  #text
+
+# draw front wheel
+p=250:300,  # set position
+d=b,C=40:5, # set display black, draw filled circle, radius 40, frame pixel 5x5
+d=C,        # set d (display/foreground) color to color
+c=20:4,     # draw empty circle with frame pixel 4x4
+
+# draw back wheel
+p=500:300,  # set position
+d=b,C=40:5, # set display black, draw filled circle, radius 40, frame pixel 5x5
+d=C,        # set d (display/foreground) color to color
+c=20:4,     # draw empty circle with frame pixel 4x4
+
+# draw bottom plate
+d=b,        # black
+p=300:320,  # start position
+l=450:320:0:5, # draw line to X=400, Y=30, 0 = dotted , 5 pixel 5x5
+
+# draw front wheel case
+p=300:320,      # start behind front wheel
+l=300:280:0:5,  # go up
+l=290:260:0:5,  # slighty up forward
+l=250:250:0:5,  # slighty up forward
+l=210:260:0:5,  # slight down forward
+l=190:320:0:5,  # down forward before wheel
+
+#draw bumber
+l=150:320:0:5,  # front bumber bottom
+l=170:270:0:5,  # front bumber up
+
+#draw hood
+l=220:220:0:5,  # hood sliding up
+l=320:220:0:5,  # hood straight
+
+#draw front window
+l=400:150:0:5,  # window sliding up
+
+#roof
+l=550:150:0:5,  # roof straight back
+
+#back cover
+l=600:270:0:5,  # back sliding down
+l=600:320:0:5,  # back straight down
+l=550:320:0:5,  # back plate
+
+#back wheelcase
+l=550:280:0:5,  # back up 
+l=520:250:0:5,  # back slighty up
+l=480:250:0:5,  # back straight forward
+l=450:280:0:5,  # back slighty down
+l=450:320:0:5,  # back down
+
+# driver door
+d=c,
+p=340:220,      #  starting point
+l=400:170:0:2,  # sliding up
+l=440:170:0:2,  # top door
+l=440:300:0:2,  # door down
+l=340:300:0:2,  # bottom door
+l=340:220:0:2,  # door up
+
+# door grip
+d=b,            # black
+p=430:250,      # start position
+P=5,            # size pixle 5x5
+
+#driver window
+d=c,            # color
+p= 350:220,     # start position
+l= 400:180:0:2, # sliding up
+l= 430:180:0:2, # top window
+l= 430:220:0:2, # back down
+l= 350:220:0:2, # bottom forward
+
+#back window
+p= 460:230,
+l= 460:170:0:2, # front up
+l= 542:170:0:2, # top
+l= 560:230:0:2, # back down
+l= 460:230:0:2, # to front
+
+#antenna
+d=b,            #display black
+p=270:220,      #starting position
+l=300:170:0:2,  #line
+
+>           # end terminator
+#instruction end
+ 

@@ -1,0 +1,4 @@
+# create named pipes
+
+mknod EPD_to p
+mknod EPD_from p
