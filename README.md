@@ -52,6 +52,9 @@ A detailed document with the experience and description is epaper.odt
 ### version 1.0 / July 2019
  * Initial version
 
+### version 1.0.1 / September 2020
+ * fixed compile issues on Raspberry Pi-OS (Buster)
+
 ## Author
  * Paul van Haastrecht (paulvha@hotmail.com)
 

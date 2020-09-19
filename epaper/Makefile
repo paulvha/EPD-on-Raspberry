@@ -1,5 +1,6 @@
 # make file for epaper
 # version 1.0 paulvha
+# version 2.0 paulvha added -Wno-missing-braces to stop GCC bug 53119
 
 DIR_FONTS = ./Fonts
 DIR_OBJ = ./obj
@@ -10,7 +11,7 @@ OBJ_O = $(patsubst %.c,${DIR_BIN}/%.o,$(notdir ${OBJ_C}))
 
 TARGET = epaper
 CC = c99
-MSG = -g -O0 -Wall
+MSG = -g -O0 -Wall -Wno-missing-braces
 
 CFLAGS += $(MSG)
 LIB = -lbcm2835 -lm

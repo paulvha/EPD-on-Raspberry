@@ -48,6 +48,7 @@
 #ifndef _DEV_CONFIG_H_
 #define _DEV_CONFIG_H_
 
+#include <sys/types.h>		// added to overcome off_t not defined in bcm2835.h
 #include <bcm2835.h>
 #include <stdint.h>
 #include <stdio.h>

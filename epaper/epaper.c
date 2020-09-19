@@ -10,6 +10,10 @@
  * or read from a file (like car-instruction) or from a remote program with named 
  * pipes, A sample program remotepr.c has been provided.
  * 
+ * Version 1.0.1 September 2020 / paulvha
+ * - fixed issues to compile on Pi-OS (Buster) in obj/DEV_config.h
+ * - supress warning messages around missing braces in font file (is GCC bug) in Makefile
+ * 
  * *****************************************************************
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as 
@@ -27,7 +31,7 @@
   
 # include "epaper.h"
 
-# define VERSION "1.0, July 2019"
+# define VERSION "1.0,1 September 2020"
 
 /* used as part of p_printf() */
 bool NoColor=false;
@@ -1610,9 +1614,10 @@ void ePaint_DrawChar(UWORD Xpoint, UWORD Ypoint, const char Acsii_Char,
                     Paint_SetPixel(Xpoint + Column, Ypoint + Page, RED);
                     Paint_SelectImage(BlackImage);
                 }
-                else
+                else {
                     Paint_SelectImage(BlackImage);
                     Paint_SetPixel(Xpoint + Column, Ypoint + Page, Color_Foreground);
+                }
             } 
                 
             else {
@@ -1622,10 +1627,10 @@ void ePaint_DrawChar(UWORD Xpoint, UWORD Ypoint, const char Acsii_Char,
                     Paint_SetPixel(Xpoint + Column, Ypoint + Page, RED);
                     Paint_SelectImage(BlackImage);
                 }
-                else
+                else  {
                     Paint_SelectImage(BlackImage);
                     Paint_SetPixel(Xpoint + Column, Ypoint + Page, Color_Background);
-                                       
+                }                       
             }
             
             //One pixel is 8 bits
